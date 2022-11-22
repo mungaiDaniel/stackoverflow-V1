@@ -19,24 +19,24 @@ Questions = {
         } 
 }
 
-def abort_if_question_doesnt_exsit(quest_id):
-    if quest_id not in Questions:
-        abort(404, message="question {} doesn't exist".format(quest_id))
+def abort_if_question_doesnt_exsit(q_id):
+    if q_id not in Questions:
+        abort(404, message="question {} doesn't exist".format(q_id))
 
 parse = reqparse.RequestParser()
 parse.add_argument('question', type=str, help='questions')
 
 class Question(Resource):
-    def get(self, quest_id):
-        abort_if_question_doesnt_exsit(quest_id)
-        return Questions[quest_id]
+    def get(self, q_id):
+        abort_if_question_doesnt_exsit(q_id)
+        return Questions[q_id]
     
 class QuestionList(Resource):
     def get(self):
         return Questions
     
 api.add_resource(QuestionList, '/Api/v1/questions')
-api.add_resource(Question, '/Api/v1/question/<quest_id>')
+api.add_resource(Question, '/Api/v1/questions/<q_id>')
 
 
 
