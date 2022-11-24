@@ -6,7 +6,7 @@ MY_DATABASE = {
 
 Questions = MY_DATABASE["questions"]
 
-class Data:
+class Question:
     def __init__(self, description, title):
         self.id = len(Questions) + 1
         self.title = title
@@ -20,6 +20,7 @@ class Data:
         }
         
         return question
+    
     def save(self):
         Questions.append(self)
         return self.json_dumps()
@@ -33,3 +34,32 @@ class Data:
             output.append(question.json_dumps())
         
         return output
+    
+    @classmethod
+    def get_question_by_id(cls, id):
+        output = []
+        for question in Questions:
+            if question.id == id:
+                output.append(question.json_dumps())
+                return output
+            
+    @staticmethod
+    def update_question(update_data, id):
+        for question in Questions:
+            if question.id == id:
+                question.title = update_data["title"]
+                question.description = update_data["description"]
+        return [{
+            "id": id,
+            "title": update_data["title"],
+            "description": update_data["description"]
+        }]
+        
+    @classmethod
+    def delete_question(cls, id):
+        
+        for question in Questions:
+            if question.id == id:
+                Questions.remove(question)
+                
+
