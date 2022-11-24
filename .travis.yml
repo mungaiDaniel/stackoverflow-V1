@@ -1,0 +1,12 @@
+language: python
+
+python:
+  - "3.8"
+
+install:
+  - pip install -r requirement
+
+script: 
+  - python manage.py server
+
+env:
