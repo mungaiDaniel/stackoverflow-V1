@@ -41,7 +41,7 @@ class Question:
         for question in Questions:
             if question.id == id:
                 output.append(question.json_dumps())
-                return output
+                return question.json_dumps()
             
     @staticmethod
     def update_question(update_data, id):

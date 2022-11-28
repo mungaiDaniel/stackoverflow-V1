@@ -6,16 +6,18 @@ MY_ANSWER_DATABASE = {
 Answers = MY_ANSWER_DATABASE["answers"]
 
 class Answer:
-    def __init__(self, description, title):
+    def __init__(self, description, title, question_id):
         self.id = len(Answers) + 1
         self.title = title
         self.description = description
+        self.question_id = question_id
         
     def json_dumps(self):
         answer = {
             "id": self.id,
             "title": self.title,
-            "description": self.description
+            "description": self.description,
+            "question_id": self.question_id
         }
         
         return answer
@@ -25,12 +27,13 @@ class Answer:
         return self.json_dumps()
     
     @classmethod
-    def get_all(cls):
+    def get_all(cls, id):
         
         output = []
         
         for answer in Answers:
-            output.append(answer.json_dumps())
+            if answer.question_id == id:
+                output.append(answer.json_dumps())
         
         return output
     

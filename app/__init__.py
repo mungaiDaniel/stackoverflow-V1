@@ -7,6 +7,5 @@ from app.answers.view import version1
 app = Flask(__name__)
 app.register_blueprint(V1)
 app.register_blueprint(version1)
+app.debug = True
 
-if __name__ == '__main__':
-    app.run(debug=True)
