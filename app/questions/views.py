@@ -22,7 +22,7 @@ def post():
     data = request.get_json()
     title = data["title"]
     description = data["description"]
-    
+        
     new_question = Question(title=title, description=description)
     
     new_question.save()
@@ -64,7 +64,9 @@ def delete(id):
     question_to_delete = Question.get_question_by_id(id=id)
     
     if question_to_delete:
+        
         Question.delete_question(id=id)
+        
         return make_response(jsonify({
             "status": 204,
             "message": "deleted successful"
@@ -74,4 +76,4 @@ def delete(id):
     return make_response(jsonify({
         "status": 404,
         "error": "No question found with that id"
-     }))
+     }), 404)
