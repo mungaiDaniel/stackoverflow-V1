@@ -25,6 +25,6 @@ answer2_to_post = {
     "description": "object oriented programming"
 }
 answer3_to_post = {
-    "title": "sql",
+    "title": "",
     "description": "standard query language"
 }
