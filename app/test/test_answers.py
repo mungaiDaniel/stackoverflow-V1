@@ -3,7 +3,7 @@ from app.answers.model import MY_ANSWER_DATABASE
 
 from app import app
 import json
-from app.utils.helper import answer1_to_post, answer2_to_post, answer3_to_post,question1_to_post
+from app.utils.helper import answer1_to_post, answer2_to_post, answer3_to_post,question1_to_post, answer4_to_post
     
 class TestAnswer(TestCase):
     def setUp(self):
@@ -91,3 +91,12 @@ class TestAnswer(TestCase):
         with self.client:
             response = self.client.get('/', headers={'Content-Type': 'application' '/json'})
             self.assertEqual(response._status_code, 404)
+            
+    def test_answer_with_no_description(self):
+         with self.client:
+             response1 = self.post_question()
+            
+             
+             response = self.client.post('api/v1/answer/1', data=json.dumps(answer4_to_post),
+                                         headers = {'content-type': 'application' '/json'})
+             self.assertEqual(response.status_code, 400)    

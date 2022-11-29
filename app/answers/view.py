@@ -24,6 +24,12 @@ def post(id):
             "status": 404,
             "msg": "No question found"
         }), 404)
+        
+    if not request.json or not 'description' in request.json:
+        return make_response(jsonify({
+            "status": 400,
+            "error": "Office name is required"
+        }), 400)
     data = request.get_json()
     title = data['title']
     if len(title) < 1 :
