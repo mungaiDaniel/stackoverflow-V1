@@ -3,7 +3,7 @@ from app.questions.model import MY_DATABASE
 
 from app import app
 import json
-from app.utils.helper import question1_to_post, question2_to_post, question3_to_post
+from app.utils.helper import question1_to_post, question2_to_post, question3_to_post, question4_to_post, question5_to_post
     
 class TestAnswer(TestCase):
     def setUp(self):
@@ -44,5 +44,21 @@ class TestAnswer(TestCase):
         
         self.assertEqual(response.status_code, 204)
      
+    def test_question_with_no_title(self):
+         with self.client:
+             response = self.post_question()
+            
              
-    
+             response = self.client.post('api/v1/question', data=json.dumps(question4_to_post),
+                                         headers = {'content-type': 'application' '/json'})
+             self.assertEqual(response.status_code, 400)  
+             
+    def test_question_with_no_description(self):
+         with self.client:
+             response = self.post_question()
+            
+             
+             response = self.client.post('api/v1/question', data=json.dumps(question5_to_post),
+                                         headers = {'content-type': 'application' '/json'})
+             self.assertEqual(response.status_code, 400) 
+            
