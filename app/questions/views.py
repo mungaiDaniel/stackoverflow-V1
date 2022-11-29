@@ -11,7 +11,7 @@ V1 = Blueprint('api-version1', __name__, url_prefix='/api/v1')
 def get():
     
     questions = Question.get_all()
-    
+
     return make_response(jsonify({
         "status": 200,
         "data": questions
@@ -19,7 +19,18 @@ def get():
     
 @V1.route('/question', methods=['POST'])
 def post():
+    
     data = request.get_json()
+    if not request.json or not 'title' in request.json:
+        return make_response(jsonify({
+            "status": 400,
+            "error": "title name is required"
+        }), 400)
+    if not request.json or not 'description' in request.json:
+        return make_response(jsonify({
+            "status": 400,
+            "error": "description name is required"
+        }), 400)
     title = data["title"]
     description = data["description"]
         

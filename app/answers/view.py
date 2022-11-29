@@ -28,7 +28,7 @@ def post(id):
     if not request.json or not 'description' in request.json:
         return make_response(jsonify({
             "status": 400,
-            "error": "Office name is required"
+            "error": "description name is required"
         }), 400)
     data = request.get_json()
     title = data['title']

@@ -32,3 +32,12 @@ answer4_to_post = {
     "title": "python",
     "decf": "name the datastructures in python"
 }
+
+question4_to_post = {
+    "rt": "python",
+    "descrption": "what is python"
+}
+question5_to_post = {
+    "title": "python",
+    "descion": "what is python"
+}
