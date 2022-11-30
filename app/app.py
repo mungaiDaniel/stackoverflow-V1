@@ -1,5 +1,6 @@
 """initializing the application"""
 from flask import Flask
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 from app.questions.views import V1
 from app.answers.view import version1
