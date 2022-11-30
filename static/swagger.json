@@ -1,0 +1,18 @@
+{
+    
+  "openapi": "3.0.3",
+  "info": {
+    "description": "StackOverflow is a platform where people can ask question and provide answers.I have build Api endpoints with the use of data structure to store data in memory (with no database)",
+    "version": "1.0.0",
+    "title": "stackoverflow_V1",
+    "contact": {
+        "email": "danitomonga@gmail.com",
+        "name": "API Support",
+        "url": "http://127.0.0.1:5000/swagger"
+    },
+    "license": {
+      "name": "QUST",
+      "url": "http://127.0.0.1:5000/swagger"
+    }
+  }
+}
