@@ -21,15 +21,10 @@ def get():
 def post():
     
     data = request.get_json()
-    if not request.json or not 'title' in request.json:
+    if not request.json or not 'title' in request.json or not 'description' in request.json:
         return make_response(jsonify({
             "status": 400,
-            "error": "title name is required"
-        }), 400)
-    if not request.json or not 'description' in request.json:
-        return make_response(jsonify({
-            "status": 400,
-            "error": "description name is required"
+            "error": "details name is required"
         }), 400)
     title = data["title"]
     description = data["description"]
