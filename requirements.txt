@@ -1,5 +1,6 @@
 aniso8601==8.0.0
 attrs==22.1.0
+AWSIoTPythonSDK==1.5.2
 certifi==2022.9.24
 charset-normalizer==2.0.12
 click==7.1.2
