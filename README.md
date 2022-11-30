@@ -1,6 +1,6 @@
 # stackoverflow-V1
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/3b5bfc650d1971aa2fe8/maintainability)](https://codeclimate.com/github/mungaiDaniel/stackoverflow-V1/maintainability) [![Coverage Status](https://coveralls.io/repos/github/mungaiDaniel/stackoverflow-V1/badge.svg?branch=develop)](https://coveralls.io/github/mungaiDaniel/stackoverflow-V1?branch=feature-complete)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3b5bfc650d1971aa2fe8/maintainability)](https://codeclimate.com/github/mungaiDaniel/stackoverflow-V1/maintainability) [![Coverage Status](https://coveralls.io/repos/github/mungaiDaniel/stackoverflow-V1/badge.svg?branch=develop)](https://coveralls.io/github/mungaiDaniel/stackoverflow-V1?branch=feature-complete) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/mungaiDaniel/stackoverflow-V1/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mungaiDaniel/stackoverflow-V1/tree/main)
 
 ************************************************************************************************************************************************
 
