@@ -60,10 +60,10 @@ def get_by_id(id):
 @V1.route('/question/<int:id>', methods=['PUT'])
 def update(id):
     
-    update_data = request.get_json()
+    my_data = request.get_json()
     
     question_to_edit = Question.get_question_by_id(id=id)
-    question_to_edit = Question.update_question(update_data=update_data, id=id)
+    question_to_edit = Question.update_question(my_data=my_data, id=id)
     
     return make_response(jsonify({
         "status": 201,

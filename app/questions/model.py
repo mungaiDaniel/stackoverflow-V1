@@ -44,15 +44,15 @@ class Question:
                 return question.json_dumps()
             
     @staticmethod
-    def update_question(update_data, id):
+    def update_question(my_data, id):
         for question in Questions:
             if question.id == id:
-                question.title = update_data["title"]
-                question.description = update_data["description"]
+                question.title = my_data["title"]
+                question.description = my_data["description"]
         return [{
             "id": id,
-            "title": update_data["title"],
-            "description": update_data["description"]
+            "title": my_data["title"],
+            "description": my_data["description"]
         }]
         
     @classmethod
