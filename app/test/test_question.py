@@ -1,7 +1,7 @@
 from unittest import TestCase
 from app.questions.model import MY_DATABASE
 
-from app import app
+from app.app import app
 import json
 from app.utils.helper import question1_to_post, question2_to_post, question3_to_post, question4_to_post, question5_to_post
     
