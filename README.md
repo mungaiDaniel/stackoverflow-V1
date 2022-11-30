@@ -22,7 +22,6 @@ This Application is developed using python pure Flask.The data is stored on pyth
 | POST   | /api/v1/question                      | Endpoint to create a question
 | GET    | /api/v1/question                      | Endpoint to get all question
 | GET    | /api/v1/question/<int:id>             | Endpoint to get one question
-| PUT    | /api/v1/question/<int:id>             | Endpoint to update a question
 | DELETE | /api/v1/question/<int:id>             | Endpoint to Delete a question
 | POST   | /api/v1/answer/<int:question_id>      | Endpoint to create a answer
 | GET    | /api/v1/answers/<int:question_id>     | Endpoint to get all answers

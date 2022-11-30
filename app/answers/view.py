@@ -2,8 +2,6 @@ from flask import make_response, jsonify, Blueprint, request
 
 from app.answers.model import Answer
 from app.questions.model import Question
-from urllib.parse import urlparse
-from urllib.parse import parse_qs
 
 
 version1 = Blueprint('api-v1', __name__, url_prefix='/api/v1')
