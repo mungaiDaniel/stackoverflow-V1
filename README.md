@@ -1,6 +1,6 @@
 # stackoverflow-V1
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/417b95c91d52c4ed7201/maintainability)](https://codeclimate.com/github/mungaiDaniel/stackoverflow-V1/maintainability) [![Coverage Status](https://coveralls.io/repos/github/mungaiDaniel/stackoverflow-V1/badge.svg?branch=develop)](https://coveralls.io/github/mungaiDaniel/stackoverflow-V1?branch=feature-complete)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3b5bfc650d1971aa2fe8/maintainability)](https://codeclimate.com/github/mungaiDaniel/stackoverflow-V1/maintainability) [![Coverage Status](https://coveralls.io/repos/github/mungaiDaniel/stackoverflow-V1/badge.svg?branch=develop)](https://coveralls.io/github/mungaiDaniel/stackoverflow-V1?branch=feature-complete)
 
 ************************************************************************************************************************************************
 
@@ -28,3 +28,5 @@ This Application is developed using python pure Flask.The data is stored on pyth
 | GET    | /api/v1/answers/<int:answer_id>       | Endpoint to get one answer
 | PUT    | /api/v1/answer/<int:answer_id>        | Endpoint to update an answer
 | DELETE | /api/v1/question/<int:answer_id>      | Endpoint to Delete an answer
+
+## Getting Started
