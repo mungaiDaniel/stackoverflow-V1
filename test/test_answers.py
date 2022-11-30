@@ -1,4 +1,5 @@
 from unittest import TestCase
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 from app.answers.model import MY_ANSWER_DATABASE
 
 from app.app import app
