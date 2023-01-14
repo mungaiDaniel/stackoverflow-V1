@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "stackoverflow-v1",
+      "version": "1.0.0",
+      "title": "stackoverflow-v1",
+      "contact": {
+        "email": "danitomonga@gmail.com"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+        {
+          "url": "/"
+        }
+      ],
+    "tags": [
+      {
+        "name": "question and answers",
+        "description": "Example API for asking and answering questions"
+       }
+      ],
+    "paths":{
+      "/request":{
+        "get": {
+          "tags":[
+            "question and answers"
+          ],
+          "summary": "get a question",
+          "response":{
+            "200":{
+              "description": "OK",
+            "schema":{
+              "$ref": "/api/v1/question"
+            }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "question and answers"
+          ],
+          "summary": "Create a new question",
+          "requestBody": {
+            "description": "question Request Post Object",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "/api/v1/question"
+                }
+              }
+            }
+          }
+      },
+      "produces": [
+        "application/json"
+      ],
+      "response":{
+        "201":{
+          "description": "OK",
+          "schema": {
+            "$ref": "/api/v1/question/id"
+          }
+        },
+        "400":{
+          "description": "failed. bad post data"
+        }
+      }
+    }
+  },
+  "/request/{id}": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "ID of the cat that we want to match",
+        "type": "string"
+      }
+    ],
+    "get": {
+      "tags": [
+        "question and answers"
+      ],
+      "summary": "get one question",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "question request id",
+          "schema": {
+            "$ref": "/api/v1/question/2"
+          }
+        }
+      ]
+    }
+  }
+}
