@@ -70,3 +70,16 @@ def delete(id):
         "status": 404,
         "error": "No question found with that id"
      }), 404)
+    
+@V1.route('/question/<int:id>', methods=['PUT'])
+def update(id):
+    
+    my_data = request.get_json()
+    
+    question_to_edit = Question.get_question_by_id(id=id)
+    question_to_edit = Question.update_question(my_data=my_data, id=id)
+    
+    return make_response(jsonify({
+        "status": 201,
+        "data": question_to_edit
+    }), 201)

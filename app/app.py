@@ -28,3 +28,6 @@ swaggeriu_blueprint = get_swaggerui_blueprint(
     }
 )
 app.register_blueprint(swaggeriu_blueprint, url_prefix=SWAGGER_URL)
+
+from app.answers import model, view
+from app.questions import model, views
