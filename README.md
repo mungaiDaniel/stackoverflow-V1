@@ -59,8 +59,8 @@ Install pip:
 
 Clone this repository:
 
-  $ git clone https://github.com/Nduhiu17/StackOverflow-lite-v1.git
-
+  $ git clone https://github.com/mungaiDaniel/stackoverflow-V1.git
+  
 Get into the root directory:
 
   $ cd StackOverflow-lite-v1/
