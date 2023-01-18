@@ -42,7 +42,17 @@ class Question:
             if question.id == id:
                 output.append(question.json_dumps())
                 return question.json_dumps()
-        
+    @staticmethod
+    def update_question(my_data, id):
+        for question in Questions:
+            if question.id == id:
+                question.title = my_data["title"]
+                question.description = my_data["description"]
+        return [{
+            "id": id,
+            "title": my_data["title"],
+            "description": my_data["description"]
+        }]
     @classmethod
     def delete_question(cls, id):
         

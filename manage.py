@@ -1,11 +1,5 @@
-
-from flask_script import Manager, Server
 from app.app import app
-from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+from app.answers.model import MY_ANSWER_DATABASE
+from app.questions.model import MY_DATABASE
 
-manager = Manager(app)
 
-manager.add_command('server', Server)
-
-if __name__ == '__main__':
-    manager.run()  

@@ -1,103 +1,415 @@
+
 {
-    "openapi": "3.0.0",
-    "info": {
-      "description": "stackoverflow-v1",
-      "version": "1.0.0",
-      "title": "stackoverflow-v1",
-      "contact": {
-        "email": "danitomonga@gmail.com"
-      },
-      "license": {
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT"
-      }
-    },
-    "servers": [
-        {
-          "url": "/"
-        }
-      ],
-    "tags": [
-      {
-        "name": "question and answers",
-        "description": "Example API for asking and answering questions"
-       }
-      ],
-    "paths":{
-      "/request":{
-        "get": {
-          "tags":[
-            "question and answers"
-          ],
-          "summary": "get a question",
-          "response":{
-            "200":{
-              "description": "OK",
-            "schema":{
-              "$ref": "/api/v1/question"
-            }
-            }
-          }
-        },
-        "post": {
-          "tags": [
-            "question and answers"
-          ],
-          "summary": "Create a new question",
-          "requestBody": {
-            "description": "question Request Post Object",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "/api/v1/question"
-                }
-              }
-            }
-          }
-      },
-      "produces": [
-        "application/json"
-      ],
-      "response":{
-        "201":{
-          "description": "OK",
-          "schema": {
-            "$ref": "/api/v1/question/id"
-          }
-        },
-        "400":{
-          "description": "failed. bad post data"
-        }
-      }
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Flask restful with data-structure no database intergated",
+    "version": "1.0.0",
+    "title": "Stack0verflow-v1",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "/request/{id}": {
-    "parameters": [
-      {
-        "name": "id",
-        "in": "path",
-        "required": true,
-        "description": "ID of the cat that we want to match",
-        "type": "string"
-      }
-    ],
-    "get": {
-      "tags": [
-        "question and answers"
-      ],
-      "summary": "get one question",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "question request id",
-          "schema": {
-            "$ref": "/api/v1/question/2"
-          }
-        }
-      ]
+  "tags": [
+    {
+      "title": "Questions & Answers Api",
+      "description": "Test API"
     }
-  }
+  ],
+   "servers": [
+        {
+        "url": "/"
+        }
+    ],
+       "components": {
+        "schemas": {
+            "Questions": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                    "type": "string"
+                    },
+                    "description": {
+                    "type": "string"
+                    }
+                }
+            },
+            "Id":{
+            "type" : "integer",
+            "properties" : {
+                "title" : {
+                    "type" : "integer"
+                }
+            }
+        },
+            "update":{
+              "type": "object",
+              "properties" :{
+                "title": {
+                    "type": "string"
+                    },
+                  "description": {
+                    "type": "string"
+                  }
+              }
+            },
+            "Answers":{
+              "type": "object",
+              "properties": {
+                  "title": {
+                  "type": "string"
+                  },
+                  "description": {
+                  "type": "string"
+                  }
+              }
+            }
+        }
+    },
+    "paths": {
+      "/api/v1/question": {
+          "post": {
+          "tags": [
+              "Add question to API"
+          ],
+          "summary": "Add question",
+          "requestBody": {
+          "description": "Post a new question to my data-stracture",
+          "required": true,
+          "content": {
+              "application/json": {
+              "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              }
+          }
+          },
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+          }
+          }
+          },
+          "get" :{
+              "tags": [
+                  "Get All questions from API"
+              ],
+              "summary": "Get All questions",
+             
+              "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+          }
+          }
+          }
+      },
+      "/api/v1/question/{id}":{
+
+          "get" :{
+              "tags": [
+                  "Get one question from API"
+              ],
+              "summary": "Get one question",
+              "parameters": [{
+                "name": "id",
+                "in": "path",
+                "description": "question id to update",
+                "required": true,
+                "type": "integer",
+                "schema" : {
+                    "$ref": "#/components/schemas/Id"
+                }
+              }],
+             
+              "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+          }
+          }
+          },
+         
+          "put": {
+          "tags": [
+              "Update question on API"
+          ],
+          "parameters": [{
+              "name": "id",
+              "in": "path",
+              "description": "question id to update",
+              "required": true,
+              "type": "integer",
+              "schema" : {
+                  "$ref": "#/components/schemas/Id"
+              }
+          }],
+          "summary": "Update question",
+          "requestBody": {
+          "description": "Update Existing question on data-structure",
+          "required": true,
+          "content": {
+              "application/json": {
+                  "schema": {
+                      "$ref": "#/components/schemas/update"
+                  }
+              }
+          }
+          },
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+          }
+          }
+      },
+      "delete": {
+          "tags": [
+              "Delete question to API"
+          ],
+          "parameters": [{
+              "name": "id",
+              "in": "path",
+              "description": "question id to delete",
+              "required": true,
+              "type": "integer",
+              "schema" : {
+                  "$ref": "#/components/schemas/Id"
+              }
+          }],
+          "summary": "Delete question",
+          
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Questions"
+                  }
+          }
+          }
+      }
+      },
+      "/api/v1/answer/{id}":{
+        "post": {
+          "tags": [
+              "Add answer to question API"
+          ],
+          "summary": "Add answer to question id",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "question id to answer",
+            "required": true,
+            "type": "integer",
+            "schema" : {
+                "$ref": "#/components/schemas/Id"
+            }
+          }],
+          "requestBody": {
+          "description": "Post an answer to my question",
+          "required": true,
+          "content": {
+              "application/json": {
+              "schema": {
+                  "$ref": "#/components/schemas/Answers"
+                  }
+              }
+          }
+          },
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Answers"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Answers"
+                  }
+          }
+          }
+          },
+          "get" :{
+            "tags": [
+                "Get one answer from a question"
+            ],
+            "summary": "Get one answer from a question",
+            "parameters": [{
+              "name": "id",
+              "in": "path",
+              "description": "answer id to get",
+              "required": true,
+              "type": "integer",
+              "schema" : {
+                  "$ref": "#/components/schemas/Id"
+              }
+            }],
+           
+            "responses": {
+            "200": {
+                "description": "OK",
+                "schema": {
+                "$ref": "#/components/schemas/Answers"
+                }
+            },
+            "404": {
+                "description": "NOT FOUND",
+                "schema": {
+                "$ref": "#/components/schemas/Answers"
+                }
+        }
+        }
+        },
+        "delete": {
+          "tags": [
+              "Delete answer of a question"
+          ],
+          "parameters": [{
+              "name": "id",
+              "in": "path",
+              "description": "answer id to delete",
+              "required": true,
+              "type": "integer",
+              "schema" : {
+                  "$ref": "#/components/schemas/Id"
+              }
+          }],
+          "summary": "Delete answer",
+          
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                  "$ref": "#/components/schemas/Answers"
+                  }
+              },
+              "404": {
+                  "description": "NOT FOUND",
+                  "schema": {
+                  "$ref": "#/components/schemas/Answers"
+                  }
+          }
+          }
+      }
+      },
+
+      "/api/v1/answers/{id}":{
+        "get" :{
+          "tags": [
+              "Get all answer from a question"
+          ],
+          "summary": "Get all answer from a question",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "question id to get answers",
+            "required": true,
+            "type": "integer",
+            "schema" : {
+                "$ref": "#/components/schemas/Id"
+            }
+          }],
+         
+          "responses": {
+          "200": {
+              "description": "OK",
+              "schema": {
+              "$ref": "#/components/schemas/Answers"
+              }
+          },
+          "404": {
+              "description": "NOT FOUND",
+              "schema": {
+              "$ref": "#/components/schemas/Answers"
+              }
+      }
+      }
+      },
+      "put": {
+        "tags": [
+            "Update answer on a question"
+        ],
+        "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "answer id to update",
+            "required": true,
+            "type": "integer",
+            "schema" : {
+                "$ref": "#/components/schemas/Id"
+            }
+        }],
+        "summary": "Update answer",
+        "requestBody": {
+        "description": "Update Existing answer on question",
+        "required": true,
+        "content": {
+            "application/json": {
+                "schema": {
+                    "$ref": "#/components/schemas/update"
+                }
+            }
+        }
+        },
+        "responses": {
+            "200": {
+                "description": "OK",
+                "schema": {
+                "$ref": "#/components/schemas/Answers"
+                }
+            },
+            "404": {
+                "description": "NOT FOUND",
+                "schema": {
+                "$ref": "#/components/schemas/Answers"
+                }
+        }
+        }
+}
+}
+
+
+
+}
 }
