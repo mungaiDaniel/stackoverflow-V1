@@ -29,4 +29,69 @@ This Application is developed using python pure Flask.The data is stored on pyth
 | PUT    | /api/v1/answer/<int:answer_id>        | Endpoint to update an answer
 | DELETE | /api/v1/question/<int:answer_id>      | Endpoint to Delete an answer
 
-## Getting Started
+#### Prerequisites
+- [Python3](https://www.python.org/) (A programming language)
+- [Flask](http://flask.pocoo.org/) (A Python web microframework)
+- [Pivotal Tracker](www.pivotaltracker.com) (A project management tool)
+- [Pytest](https://docs.pytest.org/en/latest/) (Tool for testing)
+- [Pylint](https://www.pylint.org/) (Linting library)
+- [Pip3](https://pypi.org/project/pip/) (Python package installer)
+
+#### Getting Started:
+
+**To start the app, please follow the instructions below:**
+
+***Create test and development databases as shown***
+
+**On your terminal**
+
+  $ psql
+
+  $ CREATE DATABASE stackoverflow_lite;
+
+  $ CREATE DATABASE stackoverflow_lite_test;
+
+**On your terminal:**
+
+Install pip:
+
+  $ sudo apt-get install python-pip
+
+Clone this repository:
+
+  $ git clone https://github.com/Nduhiu17/StackOverflow-lite-v1.git
+
+Get into the root directory:
+
+  $ cd StackOverflow-lite-v1/
+
+Install virtual enviroment:
+
+  $ python3.6 -m venv virtual
+
+Activate the virtual environment:
+
+  $ source virtual/bin/activate
+  
+Install requirements
+
+  $ pip install -r requirements.txt
+
+Create a start.sh file and export your app's secret key inside as shown by example_start.sh
+
+Give the file executable permissions by right clicking the file and checking the execute button as shown by the image below:
+
+![start](https://user-images.githubusercontent.com/30591881/45145592-b6e7fd80-b1c9-11e8-8966-4c9ae39c6f4b.png)
+
+Run the app by:
+
+    $ export FLASK_APP=manage.py
+    $ flask run
+
+
+
+#### Running the tests
+
+Run the tests by:
+
+    $ coverage run -m pytest
